@@ -1,0 +1,81 @@
+[gd_scene load_steps=2 format=3 uid="uid://install_config_dialog"]
+
+[ext_resource type="Script" path="res://addons/package_manager/install_config_dialog.gd" id="1_script"]
+
+[node name="InstallConfigDialog" type="AcceptDialog"]
+title = "Configure Asset Before Installing"
+size = Vector2i(720, 480)
+script = ExtResource("1_script")
+
+[node name="VBox" type="VBoxContainer" parent="."]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="Header" type="VBoxContainer" parent="VBox"]
+layout_mode = 2
+theme_override_constants/separation = 6
+
+[node name="AssetLabel" type="Label" parent="VBox/Header"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 14
+text = "Asset: "
+
+[node name="InstallFolderRow" type="HBoxContainer" parent="VBox/Header"]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="ChangeFolderBtn" type="Button" parent="VBox/Header/InstallFolderRow"]
+layout_mode = 2
+text = "Change Install Folder"
+
+[node name="FolderLabel" type="Label" parent="VBox/Header/InstallFolderRow"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0.6, 0.6, 0.65, 1)
+text = "res:///"
+
+[node name="OptionsRow" type="HBoxContainer" parent="VBox"]
+layout_mode = 2
+
+[node name="IgnoreRootCheck" type="CheckBox" parent="VBox/OptionsRow"]
+layout_mode = 2
+text = "Ignore asset root"
+
+[node name="ConflictLabel" type="Label" parent="VBox"]
+layout_mode = 2
+text = "No files conflict with your project."
+
+[node name="HSplit" type="HSplitContainer" parent="VBox"]
+layout_mode = 2
+size_flags_vertical = 3
+split_offset = 350
+
+[node name="ContentsSection" type="VBoxContainer" parent="VBox/HSplit"]
+layout_mode = 2
+theme_override_constants/separation = 4
+
+[node name="ContentsTitle" type="Label" parent="VBox/HSplit/ContentsSection"]
+layout_mode = 2
+text = "Contents of the asset:"
+
+[node name="ContentsTree" type="Tree" parent="VBox/HSplit/ContentsSection"]
+layout_mode = 2
+size_flags_vertical = 3
+columns = 1
+hide_root = true
+allow_rmb_select = true
+
+[node name="PreviewSection" type="VBoxContainer" parent="VBox/HSplit"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 4
+
+[node name="PreviewTitle" type="Label" parent="VBox/HSplit/PreviewSection"]
+layout_mode = 2
+text = "Installation preview:"
+
+[node name="PreviewTree" type="Tree" parent="VBox/HSplit/PreviewSection"]
+layout_mode = 2
+size_flags_vertical = 3
+columns = 1
+hide_root = true

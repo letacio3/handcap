@@ -1,0 +1,72 @@
+[gd_scene format=3 uid="uid://cgem0ksfryhhw"]
+
+[ext_resource type="Script" uid="uid://byrswbpew2r8c" path="res://addons/package_manager/pack_dialog.gd" id="1_script"]
+
+[node name="PackDialog" type="AcceptDialog" unique_id=1697152820]
+oversampling_override = 1.0
+title = "Create Package"
+position = Vector2i(0, 36)
+size = Vector2i(480, 420)
+visible = true
+script = ExtResource("1_script")
+
+[node name="VBox" type="VBoxContainer" parent="." unique_id=40489302]
+offset_left = 8.0
+offset_top = 8.0
+offset_right = 472.0
+offset_bottom = 371.0
+theme_override_constants/separation = 8
+
+[node name="Form" type="VBoxContainer" parent="VBox" unique_id=51690790]
+layout_mode = 2
+theme_override_constants/separation = 6
+
+[node name="IdEdit" type="LineEdit" parent="VBox/Form" unique_id=1513939232]
+layout_mode = 2
+placeholder_text = "Package ID (e.g. my_asset_pack)"
+
+[node name="NameEdit" type="LineEdit" parent="VBox/Form" unique_id=1113258101]
+layout_mode = 2
+placeholder_text = "Display name"
+
+[node name="VersionEdit" type="LineEdit" parent="VBox/Form" unique_id=1919208257]
+layout_mode = 2
+placeholder_text = "Version (e.g. 1.0.0)"
+
+[node name="DescriptionEdit" type="TextEdit" parent="VBox/Form" unique_id=332727167]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+placeholder_text = "Description (optional)"
+
+[node name="PathsSection" type="VBoxContainer" parent="VBox" unique_id=700184447]
+layout_mode = 2
+theme_override_constants/separation = 4
+
+[node name="PathsLabel" type="Label" parent="VBox/PathsSection" unique_id=260004749]
+layout_mode = 2
+text = "Files / folders to pack:"
+
+[node name="PathsList" type="ItemList" parent="VBox/PathsSection" unique_id=1811618661]
+custom_minimum_size = Vector2(0, 120)
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="PathButtons" type="HBoxContainer" parent="VBox/PathsSection" unique_id=1884078460]
+layout_mode = 2
+
+[node name="AddFilesBtn" type="Button" parent="VBox/PathsSection/PathButtons" unique_id=1350893518]
+layout_mode = 2
+text = "Add files..."
+
+[node name="AddFolderBtn" type="Button" parent="VBox/PathsSection/PathButtons" unique_id=102628107]
+layout_mode = 2
+text = "Add folder..."
+
+[node name="RemovePathBtn" type="Button" parent="VBox/PathsSection/PathButtons" unique_id=1450781331]
+layout_mode = 2
+text = "Remove selected"
+
+[node name="ErrorLabel" type="Label" parent="VBox" unique_id=480610604]
+visible = false
+layout_mode = 2
+theme_override_colors/font_color = Color(0.9, 0.3, 0.3, 1)

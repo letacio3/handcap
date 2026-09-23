@@ -1,0 +1,47 @@
+[gd_scene load_steps=2 format=3 uid="uid://settings_dialog"]
+
+[ext_resource type="Script" path="res://addons/package_manager/settings_dialog.gd" id="1_script"]
+
+[node name="SettingsDialog" type="AcceptDialog"]
+title = "Package Manager Settings"
+size = Vector2i(480, 200)
+script = ExtResource("1_script")
+
+[node name="VBox" type="VBoxContainer" parent="."]
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="StorePathSection" type="VBoxContainer" parent="VBox"]
+layout_mode = 2
+theme_override_constants/separation = 6
+
+[node name="StorePathLabel" type="Label" parent="VBox/StorePathSection"]
+layout_mode = 2
+text = "Package store path:"
+
+[node name="PathRow" type="HBoxContainer" parent="VBox/StorePathSection"]
+layout_mode = 2
+theme_override_constants/separation = 6
+
+[node name="StorePathEdit" type="LineEdit" parent="VBox/StorePathSection/PathRow"]
+layout_mode = 2
+size_flags_horizontal = 3
+placeholder_text = "user://package_manager/packs"
+
+[node name="BrowseBtn" type="Button" parent="VBox/StorePathSection/PathRow"]
+layout_mode = 2
+text = "Browse..."
+
+[node name="OpenFolderBtn" type="Button" parent="VBox/StorePathSection/PathRow"]
+layout_mode = 2
+text = "Open folder"
+
+[node name="OverwriteCheck" type="CheckBox" parent="VBox"]
+layout_mode = 2
+text = "Overwrite existing files when installing"
+
+[node name="WarningLabel" type="Label" parent="VBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.85, 0.6, 0.2, 1)
+visible = false
+text = ""

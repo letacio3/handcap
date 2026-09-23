@@ -1,0 +1,19 @@
+[gd_resource type="Theme" format=3 uid="uid://dbqgbwb2g6q2r"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_btn"]
+bg_color = Color(0.25, 0.25, 0.28, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.35, 0.35, 0.4, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[resource]
+default_font_size = 14
+Button/colors/font_color = Color(0.9, 0.9, 0.92, 1)
+Button/constants/outline_size = 0
+Button/styles/normal = SubResource("StyleBoxFlat_btn")

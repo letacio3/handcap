@@ -1,0 +1,123 @@
+[gd_scene format=3 uid="uid://cg8jxhiknvps1"]
+
+[ext_resource type="Script" uid="uid://cmrgnebc5xfgy" path="res://addons/package_manager/preview_panel.gd" id="1_script"]
+[ext_resource type="Script" uid="uid://cjiy3on62ymuf" path="res://addons/package_manager/media_drop_zone.gd" id="2_script"]
+
+[sub_resource type="StyleBoxFlat" id="drop_style"]
+bg_color = Color(0.22, 0.22, 0.25, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.4, 0.6, 0.9, 0.8)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[node name="PreviewPanel" type="Window" unique_id=772068873]
+oversampling_override = 1.0
+size = Vector2i(520, 520)
+script = ExtResource("1_script")
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1032440802]
+theme_override_constants/margin_left = 12
+theme_override_constants/margin_top = 12
+theme_override_constants/margin_right = 12
+theme_override_constants/margin_bottom = 12
+
+[node name="VBox" type="VBoxContainer" parent="MarginContainer" unique_id=1979001209]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="Header" type="VBoxContainer" parent="MarginContainer/VBox" unique_id=1771750153]
+layout_mode = 2
+
+[node name="NameLabel" type="Label" parent="MarginContainer/VBox/Header" unique_id=651902946]
+layout_mode = 2
+theme_override_font_sizes/font_size = 18
+text = "Package Name"
+
+[node name="MetaLabel" type="Label" parent="MarginContainer/VBox/Header" unique_id=759987320]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.6, 0.6, 0.6, 1)
+text = "ID | Version"
+
+[node name="ThumbnailRow" type="HBoxContainer" parent="MarginContainer/VBox" unique_id=1965478686]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="ThumbnailRect" type="TextureRect" parent="MarginContainer/VBox/ThumbnailRow" unique_id=990745648]
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+expand_mode = 1
+stretch_mode = 5
+
+[node name="DescriptionLabel" type="Label" parent="MarginContainer/VBox" unique_id=1775302140]
+visible = false
+layout_mode = 2
+text = "Description"
+autowrap_mode = 2
+
+[node name="MediaSection" type="VBoxContainer" parent="MarginContainer/VBox" unique_id=1838531062]
+layout_mode = 2
+theme_override_constants/separation = 6
+
+[node name="MediaSectionTitle" type="Label" parent="MarginContainer/VBox/MediaSection" unique_id=46323922]
+layout_mode = 2
+text = "Thumbnail & media"
+
+[node name="MediaDropZone" type="PanelContainer" parent="MarginContainer/VBox/MediaSection" unique_id=423516554]
+custom_minimum_size = Vector2(0, 44)
+layout_mode = 2
+theme_override_styles/panel = SubResource("drop_style")
+script = ExtResource("2_script")
+
+[node name="DropLabel" type="Label" parent="MarginContainer/VBox/MediaSection/MediaDropZone" unique_id=1899689762]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.6, 0.6, 0.65, 1)
+text = "Drop images/videos here or use Add / Paste"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MediaButtons" type="HBoxContainer" parent="MarginContainer/VBox/MediaSection" unique_id=2141878825]
+layout_mode = 2
+
+[node name="AddMediaBtn" type="Button" parent="MarginContainer/VBox/MediaSection/MediaButtons" unique_id=1428239404]
+layout_mode = 2
+text = "Add media..."
+
+[node name="PasteMediaBtn" type="Button" parent="MarginContainer/VBox/MediaSection/MediaButtons" unique_id=2138422970]
+layout_mode = 2
+text = "Paste"
+
+[node name="MediaList" type="ItemList" parent="MarginContainer/VBox/MediaSection" unique_id=286670734]
+custom_minimum_size = Vector2(0, 90)
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="MediaItemButtons" type="HBoxContainer" parent="MarginContainer/VBox/MediaSection" unique_id=567187977]
+layout_mode = 2
+
+[node name="SetThumbnailBtn" type="Button" parent="MarginContainer/VBox/MediaSection/MediaItemButtons" unique_id=393707767]
+layout_mode = 2
+disabled = true
+text = "Set as thumbnail"
+
+[node name="RemoveMediaBtn" type="Button" parent="MarginContainer/VBox/MediaSection/MediaItemButtons" unique_id=1275367525]
+layout_mode = 2
+disabled = true
+text = "Remove"
+
+[node name="PathsSection" type="VBoxContainer" parent="MarginContainer/VBox" unique_id=924104696]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 4
+
+[node name="PathsTitle" type="Label" parent="MarginContainer/VBox/PathsSection" unique_id=1102642400]
+layout_mode = 2
+text = "Packed paths:"
+
+[node name="PathsList" type="ItemList" parent="MarginContainer/VBox/PathsSection" unique_id=1075666501]
+layout_mode = 2
+size_flags_vertical = 3

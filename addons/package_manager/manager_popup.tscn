@@ -1,0 +1,120 @@
+[gd_scene format=3 uid="uid://d23u3b0gwjd88"]
+
+[ext_resource type="Script" uid="uid://cmp6s7wmqa2lo" path="res://addons/package_manager/manager_popup.gd" id="1_script"]
+[ext_resource type="Theme" uid="uid://dbqgbwb2g6q2r" path="res://addons/package_manager/theme.tres" id="2_theme"]
+
+[node name="ManagerPopup" type="Window" unique_id=1120561432]
+oversampling_override = 1.0
+title = "Package Manager"
+initial_position = 4
+size = Vector2i(900, 600)
+theme = ExtResource("2_theme")
+script = ExtResource("1_script")
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1112957006]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="VBox" type="VBoxContainer" parent="MarginContainer" unique_id=1930714402]
+layout_mode = 2
+
+[node name="Toolbar" type="HBoxContainer" parent="MarginContainer/VBox" unique_id=1072733093]
+layout_mode = 2
+
+[node name="AddBtn" type="Button" parent="MarginContainer/VBox/Toolbar" unique_id=2109075567]
+layout_mode = 2
+tooltip_text = "Create a new package from selected files or folders"
+text = "Add Package"
+
+[node name="RefreshBtn" type="Button" parent="MarginContainer/VBox/Toolbar" unique_id=1111726580]
+layout_mode = 2
+tooltip_text = "Rescan the package store"
+text = "Refresh"
+
+[node name="SettingsBtn" type="Button" parent="MarginContainer/VBox/Toolbar" unique_id=706624430]
+layout_mode = 2
+tooltip_text = "Configure store path and options"
+text = "Settings"
+
+[node name="WarningBar" type="Label" parent="MarginContainer/VBox" unique_id=1248814913]
+visible = false
+layout_mode = 2
+theme_override_colors/font_color = Color(0.9, 0.55, 0.2, 1)
+text = "Store path not found or not writable. Check Settings."
+
+[node name="ListContainer" type="VBoxContainer" parent="MarginContainer/VBox" unique_id=641920697]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="EmptyState" type="CenterContainer" parent="MarginContainer/VBox/ListContainer" unique_id=1336669070]
+visible = false
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="VBox" type="VBoxContainer" parent="MarginContainer/VBox/ListContainer/EmptyState" unique_id=242818940]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="EmptyLabel" type="Label" parent="MarginContainer/VBox/ListContainer/EmptyState/VBox" unique_id=1904869802]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.55, 0.55, 0.6, 1)
+text = "No packages yet"
+horizontal_alignment = 1
+
+[node name="EmptyHint" type="Label" parent="MarginContainer/VBox/ListContainer/EmptyState/VBox" unique_id=1617874848]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.5, 0.5, 0.55, 1)
+text = "Click "
+
+[node name="PackageList" type="ItemList" parent="MarginContainer/VBox/ListContainer" unique_id=1070786390]
+layout_mode = 2
+fixed_icon_size = Vector2i(48, 48)
+size_flags_vertical = 3
+
+[node name="ActionsBar" type="HBoxContainer" parent="MarginContainer/VBox" unique_id=1640131217]
+layout_mode = 2
+
+[node name="InstallBtn" type="Button" parent="MarginContainer/VBox/ActionsBar" unique_id=1349830097]
+layout_mode = 2
+tooltip_text = "Install the selected package into this project"
+disabled = true
+text = "Install"
+
+[node name="PreviewBtn" type="Button" parent="MarginContainer/VBox/ActionsBar" unique_id=2044784677]
+layout_mode = 2
+tooltip_text = "Preview package details and manage thumbnails/media"
+disabled = true
+text = "Preview"
+
+[node name="DuplicateBtn" type="Button" parent="MarginContainer/VBox/ActionsBar" unique_id=1505349447]
+layout_mode = 2
+tooltip_text = "Duplicate the package with a new ID"
+disabled = true
+text = "Duplicate"
+
+[node name="RemoveBtn" type="Button" parent="MarginContainer/VBox/ActionsBar" unique_id=1023913462]
+layout_mode = 2
+tooltip_text = "Remove the package from the store (cannot be undone)"
+disabled = true
+text = "Remove"
+
+[node name="OpenFolderBtn" type="Button" parent="MarginContainer/VBox/ActionsBar" unique_id=1383751174]
+layout_mode = 2
+tooltip_text = "Open this package's folder in the file manager"
+disabled = true
+text = "Open Folder"
+
+[node name="StatusBar" type="HBoxContainer" parent="MarginContainer/VBox" unique_id=1383751173]
+layout_mode = 2
+
+[node name="StatusLabel" type="Label" parent="MarginContainer/VBox/StatusBar" unique_id=437503158]
+layout_mode = 2
+size_flags_vertical = 0
+text = "1 package(s)"
